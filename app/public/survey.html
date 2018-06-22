@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=10">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <h1>Survey Questions</h1>
+    <br>
+    <form action="/action_page.php">
+        First name: <br>
+        <input type="text" name="fname" size="100" id='name' required>
+        <br>
+        First name: <br>
+        <input type="text" name="fname" size="100" id='photo' required>
+      </form>
+    <h1>Survey Questions</h1>
+    <div>
+        <h2>Question 1</h2>
+        <h3>I love the color green</h3>
+        <select id = "q1">
+            <option value="1">1 Strongly Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 Strongly Agree</option>
+          </select>
+          <br>
+          <h2>Question 2</h2>
+          <h3>Summer is the best season</h3>
+          <select id = "q2">
+              <option value="1">1 Strongly Disagree</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 Strongly Agree</option>
+            </select>
+            <br>
+            <h2>Question 3</h2>
+            <h3>Legos are messy.</h3>
+            <select id = "q3">
+                <option value="1">1 Strongly Disagree</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 Strongly Agree</option>
+              </select>
+              <br>
+              <h2>Question 4</h2>
+              <h3>Disneyland is funner than Legoland.</h3>
+              <select id = "q4">
+                  <option value="1">1 Strongly Disagree</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 Strongly Agree</option>
+                </select>
+                <br>
+                <h2>Question 5</h2>
+                <h3>Spiders are scary.</h3>
+                <select id = "q5">
+                    <option value="1">1 Strongly Disagree</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 Strongly Agree</option>
+                  </select>
+                  <br>
+                  <h2>Question 6</h2>
+                  <h3>Dogs are funner than cats.</h3>
+                  <select id = "q6">
+                      <option value="1">1 Strongly Disagree</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 Strongly Agree</option>
+                    </select>
+                    <br>
+                    <h2>Question 7</h2>
+                    <h3>Spiders are scary.</h3>
+                    <select id = "q7">
+                        <option value="1">1 Strongly Disagree</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 Strongly Agree</option>
+                      </select>
+                      <br>
+                      <h2>Question 8</h2>
+                      <h3>Cheerios are better than Lucky Charms.</h3>
+                      <select id = "q8">
+                          <option value="1">1 Strongly Disagree</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5 Strongly Agree</option>
+                        </select>
+                        <br>
+                        <h2>Question 9</h2>
+                        <h3>Soccer is funner than baseball.</h3>
+                        <select id = "q9">
+                            <option value="1">1 Strongly Disagree</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 Strongly Agree</option>
+                          </select>
+                          <br>
+                          <h2>Question 10</h2>
+                          <h3>Superman is stronger than Batman.</h3>
+                          <select id = "q10">
+                              <option value="1">1 Strongly Disagree</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5 Strongly Agree</option>
+                            </select>
+                            <br>
+    </div>
+    <br>
+    <a href="/survey"><button id="submit" class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span>Submit</button></a>
+                      <!-- <a href="/survey"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Survey</button></a> -->
+
+
+
+<script type="text/javascript">
+     $("#submit").on("click", function(event) {
+      event.preventDefault();
+      var newFriends = {
+        name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        scores: [$("#q1").val().trim(),
+         $("#q2").val().trim(),
+         $("#q3").val().trim(),
+         $("#q4").val().trim(),
+         $("#q5").val().trim(),
+         $("#q6").val().trim(),
+         $("#q7").val().trim(),
+         $("#q8").val().trim(),
+         $("#q9").val().trim(),
+         $("#q10").val().trim()
+      ]
+   
+      };
+      console.log(newFriends);
+      app.post("/api/friends", newFriends,
+      function(data) {
+         $("#q1").val(),
+         $("#q2").val(),
+         $("#q3").val(),
+         $("#q4").val(),
+         $("#q5").val(),
+         $("#q6").val(),
+         $("#q7").val(),
+         $("#q8").val(),
+         $("#q9").val(),
+         $("#q10").val()
+        
+  });
+
+    });
+
+</script>
+
+</body>
+</html>
