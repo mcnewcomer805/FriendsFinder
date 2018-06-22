@@ -17,7 +17,7 @@
         First name: <br>
         <input type="text" name="fname" size="100" id='name' required>
         <br>
-        First name: <br>
+        Link to photo: <br>
         <input type="text" name="fname" size="100" id='photo' required>
       </form>
     <h1>Survey Questions</h1>
@@ -135,22 +135,17 @@
       var newFriends = {
         name: $("#name").val().trim(),
         photo: $("#photo").val().trim(),
-        scores: [$("#q1").val().trim(),
-         $("#q2").val().trim(),
-         $("#q3").val().trim(),
-         $("#q4").val().trim(),
-         $("#q5").val().trim(),
-         $("#q6").val().trim(),
-         $("#q7").val().trim(),
-         $("#q8").val().trim(),
-         $("#q9").val().trim(),
-         $("#q10").val().trim()
-      ]
-   
-      };
-      console.log(newFriends);
-      app.post("/api/friends", newFriends,
-      function(data) {
+        scores: [
+        //  $("#q1").val().trim(),
+        //  $("#q2").val().trim(),
+        //  $("#q3").val().trim(),
+        //  $("#q4").val().trim(),
+        //  $("#q5").val().trim(),
+        //  $("#q6").val().trim(),
+        //  $("#q7").val().trim(),
+        //  $("#q8").val().trim(),
+        //  $("#q9").val().trim(),
+        //  $("#q10").val().trim()
          $("#q1").val(),
          $("#q2").val(),
          $("#q3").val(),
@@ -161,7 +156,26 @@
          $("#q8").val(),
          $("#q9").val(),
          $("#q10").val()
-        
+      ]
+   
+      };
+      console.log(newFriends);
+      $.post("/api/friends", newFriends).then(function(data) {
+        //  $("#q1").val(),
+        //  $("#q2").val(),
+        //  $("#q3").val(),
+        //  $("#q4").val(),
+        //  $("#q5").val(),
+        //  $("#q6").val(),
+        //  $("#q7").val(),
+        //  $("#q8").val(),
+        //  $("#q9").val(),
+        //  $("#q10").val()
+        console.log(data);
+
+        var newFriendsSelection
+
+
   });
 
     });
